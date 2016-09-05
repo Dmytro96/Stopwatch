@@ -1,0 +1,16 @@
+#clock{
+  font-family: Tahoma, sans-serif;
+  font-size:20px;
+  font-weight:bold;
+  color:#565694;
+}
+#stopwatch #arrow {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+}
+#arrow {
+  transform-origin: 10%;
+  transform: rotate(-90deg);
+  color: #1400f5;
+}
