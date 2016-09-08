@@ -1,16 +1,44 @@
-#clock{
-  font-family: Tahoma, sans-serif;
-  font-size:20px;
-  font-weight:bold;
-  color:#565694;
-}
-#stopwatch #arrow {
-  position: absolute;
-  top: 40%;
-  left: 50%;
+#stopwatch {
+  background-image: url(./../img/watch.png);
+  background-position: center;
+  background-size: cover;
+  width: 300px;
+  height: 300px;
+  margin: auto;
+  margin-top: 100px;
+  position: relative;
 }
 #arrow {
-  transform-origin: 10%;
+  position: absolute;
+  top: 47%;
+  left: 50%;
+  transform-origin: 0;
   transform: rotate(-90deg);
-  color: #1400f5;
+  color: #000000;
+  width: 149px;
+}
+.buttons{
+  padding-top: 30px;
+  text-align: center;
+  margin: auto;
+}
+.buttons > button{
+  width: 80px;
+  height: 33px;
+  font-size: 15px;
+  letter-spacing: 1px;
+  margin-right: 5px;
+}
+.buttons > button:hover{
+  cursor: pointer;
+}
+#output{
+  text-align: center;
+  width: 200px;
+  height: 75px;
+  border: 1px solid #494949;
+  margin: auto;
+  margin-top: 7px;
+  font-size: 15px;
+  padding: 10px 7px;
 }
