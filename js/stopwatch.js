@@ -10,7 +10,7 @@ var watch = new Stopwatch(timer);
 
 function start() {
   watch.start();
-  toggleBtn.textContent = 'Stop';
+  toggleBtn.textContent = 'Pause';
 }
 
 function stop() {
@@ -98,7 +98,7 @@ function Stopwatch(elem) {
 
   this.split = function () {
       if (time != 0) {
-        if (arr.length < 4) {
+        if (arr.length < 5) {
           arr.push(timeFormatter(time) + '<br/>');
         } else {
           arr.pop();
