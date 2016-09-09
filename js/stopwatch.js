@@ -1,5 +1,6 @@
 var timer = document.getElementById('timer');
 var arrow = document.getElementById('arrow');
+var arrowMinute = document.getElementById('arrowMinute');
 var output = document.getElementById('output');
 var toggleBtn = document.getElementById('toggle');
 var resetBtn = document.getElementById('reset');
@@ -34,15 +35,17 @@ function Stopwatch(elem) {
   var time = 0;
   var interval;
   var offset;
-  var degrees = -90;
-  var step = 3 / 50;
+  var degreesSecond;
+  var degreesMinute;
   var arr = [];
 
   function update() {
     if (this.isOn) {
       time += delta();
-      degrees += step;
-      arrow.style.webkitTransform = 'rotate(' + degrees + 'deg)';
+      degreesSecond = (time / 60 * 360 / 1000) - 90;
+      degreesMinute = (time * 360 / 60 / 60 / 1000) - 90;
+      arrow.style.webkitTransform = 'rotate(' + degreesSecond + 'deg)';
+      arrowMinute.style.webkitTransform = 'rotate(' + degreesMinute + 'deg)';
     }
   }
 
@@ -86,15 +89,15 @@ function Stopwatch(elem) {
   };
 
   this.reset = function () {
-    if (!this.isOn) {
       time = 0;
-      update();
-      degrees = -90;
-      arrow.style.webkitTransform = 'rotate(' + degrees + 'deg)';
+      stop();
+      degreesSecond = -90;
+      arrow.style.webkitTransform = 'rotate(' + degreesSecond + 'deg)';
+      arrowMinute.style.webkitTransform = 'rotate(' + degreesSecond + 'deg)';
       output.textContent = '';
       arr = [];
-    }
-  };
+      update();
+    };
 
   this.split = function () {
       if (time != 0) {
