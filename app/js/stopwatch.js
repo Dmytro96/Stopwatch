@@ -1,3 +1,5 @@
+require('../css/common.css');
+
 var timer = document.getElementById('timer');
 var arrow = document.getElementById('arrow');
 var arrowMinute = document.getElementById('arrowMinute');
@@ -43,8 +45,8 @@ function Stopwatch(elem) {
     if (this.isOn) {
       time += delta();
       degreesSecond = (time / 60 * 360 / 1000) - 90;
-      degreesMinute = (time * 360 / 60 / 60 / 1000) - 90;
       arrow.style.webkitTransform = 'rotate(' + degreesSecond + 'deg)';
+      degreesMinute = (degreesSecond + 90) / 60 - 90;
       arrowMinute.style.webkitTransform = 'rotate(' + degreesMinute + 'deg)';
     }
   }
