@@ -5,7 +5,7 @@ module.exports = {
   devtool: "source-map",
   entry: "./js/stopwatch.js",
   output: {
-    path: __dirname + "/dist",
+    path: __dirname + "/app/dist",
     filename: "bundle.js",
   },
   module: {

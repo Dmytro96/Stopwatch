@@ -1,13 +1,11 @@
 require('../css/common.css');
 
-var timer = document.getElementById('timer');
 var arrow = document.getElementById('arrow');
 var arrowMinute = document.getElementById('arrowMinute');
 var output = document.getElementById('output');
 var toggleBtn = document.getElementById('toggle');
 var resetBtn = document.getElementById('reset');
 var splitBtn = document.getElementById('split');
-var br = document.createElement('br');
 
 var watch = new Stopwatch(timer);
 
