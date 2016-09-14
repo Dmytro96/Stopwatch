@@ -1,11 +1,11 @@
-var webpack = require('webpack');
+var webpack = require('./app/node_modules/webpack');
 
 module.exports = {
   context: __dirname,
   devtool: "source-map",
   entry: "./js/stopwatch.js",
   output: {
-    path: __dirname + "/dist",
+    path: __dirname + "/app/dist",
     filename: "bundle.js",
   },
   module: {
