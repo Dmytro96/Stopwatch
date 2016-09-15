@@ -39,13 +39,18 @@ function Stopwatch(elem) {
   var degreesMinute;
   var arr = [];
 
+  function showDegrees(element, degrees) {
+    element.style.webkitTransform = 'rotate(' + degrees + 'deg)';
+    element.style.MozTransform = 'rotate(' + degrees + 'deg)';
+  }
+
   function update() {
     if (this.isOn) {
       time += delta();
       degreesSecond = (time / 60 * 360 / 1000) - 90;
-      arrow.style.webkitTransform = 'rotate(' + degreesSecond + 'deg)';
+      showDegrees(arrow, degreesSecond);
       degreesMinute = (degreesSecond + 90) / 60 - 90;
-      arrowMinute.style.webkitTransform = 'rotate(' + degreesMinute + 'deg)';
+      showDegrees(arrowMinute, degreesMinute);
     }
   }
 
