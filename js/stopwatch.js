@@ -1,13 +1,13 @@
 require('../css/common.css');
 
-let arrow = document.getElementById('arrow');
+var arrow = document.getElementById('arrow');
 var arrowMinute = document.getElementById('arrowMinute');
 var output = document.getElementById('output');
-let toggleBtn = document.getElementById('toggle');
+var toggleBtn = document.getElementById('toggle');
 var resetBtn = document.getElementById('reset');
 var splitBtn = document.getElementById('split');
 
-var watch = new Stopwatch(timer);
+var watch = new Stopwatch();
 
 function start() {
   watch.start();
@@ -40,18 +40,18 @@ function Stopwatch(elem) {
   var arr = [];
   var vendors = ['MozTransform', 'webkitTransform', 'OTransform', 'MsTransform', 'transform'];
 
-  function showDegrees(element, degrees) {
-    vendors.every(function (browser) {
-      element.style[browser] = 'rotate(' + degrees + 'deg)';
-    });
+  function showDegrees(element, degrees = 0) {
+    for (browser of vendors) {
+      element.style[browser] = 'rotate(' + (degrees - 90) + 'deg)';
+    }
   }
 
   function update() {
     if (this.isOn) {
       time += delta();
-      degreesSecond = (time / 60 * 360 / 1000) - 90;
+      degreesSecond = time / 60 * 360 / 1000;
       showDegrees(arrow, degreesSecond);
-      degreesMinute = (degreesSecond + 90) / 60 - 90;
+      degreesMinute = degreesSecond / 60;
       showDegrees(arrowMinute, degreesMinute);
     }
   }
@@ -98,9 +98,8 @@ function Stopwatch(elem) {
   this.reset = function () {
       time = 0;
       stop();
-      degreesSecond = -90;
-      arrow.style.webkitTransform = 'rotate(' + degreesSecond + 'deg)';
-      arrowMinute.style.webkitTransform = 'rotate(' + degreesSecond + 'deg)';
+      showDegrees(arrow);
+      showDegrees(arrowMinute);
       output.textContent = '';
       arr = [];
       update();
