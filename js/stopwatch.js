@@ -38,10 +38,12 @@ function Stopwatch(elem) {
   var degreesSecond;
   var degreesMinute;
   var arr = [];
+  var vendors = ['MozTransform', 'webkitTransform', 'OTransform', 'MsTransform', 'transform'];
 
   function showDegrees(element, degrees) {
-    element.style.webkitTransform = 'rotate(' + degrees + 'deg)';
-    element.style.MozTransform = 'rotate(' + degrees + 'deg)';
+    vendors.every(function (browser) {
+      element.style[browser] = 'rotate(' + degrees + 'deg)';
+    });
   }
 
   function update() {

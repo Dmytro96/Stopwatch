@@ -13,6 +13,10 @@
   top: 47%;
   left: 50%;
   -webkit-transform-origin: 0;
+  -moz-transform-origin: 0;
+  -o-transform-origin: 0;
+  -ms-transform-origin: 0;
+  transform-origin: 0;
   transform: rotate(-90deg);
   color: #000000;
   width: 149px;
