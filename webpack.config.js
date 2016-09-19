@@ -1,12 +1,12 @@
-var webpack = require('webpack');
+require('webpack');
 
 module.exports = {
   context: __dirname,
   devtool: 'source-map',
   entry: './js/stopwatch.js',
   output: {
-    path: __dirname + 'dist',
-    filename: 'bundle.js',
+    path: __dirname + '/dist',
+    filename: 'bundle.js'
   },
   module: {
     loaders: [
@@ -15,12 +15,12 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel-loader',
-      },
-    ],
+        loader: 'babel-loader'
+      }
+    ]
   },
   devServer: {
     inline: true,
-    port: 10000,
-  },
+    port: 10000
+  }
 };

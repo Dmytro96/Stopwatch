@@ -1,7 +1,9 @@
+'use strict';
+
 require('../css/common.css');
 
-var arrow = document.getElementById('arrow');
-var arrowMinute = document.getElementById('arrowMinute');
+let arrow = document.getElementById('arrow');
+let arrowMinute = document.getElementById('arrowMinute');
 var output = document.getElementById('output');
 var toggleBtn = document.getElementById('toggle');
 var resetBtn = document.getElementById('reset');
@@ -9,12 +11,12 @@ var splitBtn = document.getElementById('split');
 
 var watch = new Stopwatch();
 
-function start() {
+function start () {
   watch.start();
   toggleBtn.textContent = 'Pause';
 }
 
-function stop() {
+function stop () {
   watch.stop();
   toggleBtn.textContent = 'Start';
 }
@@ -28,25 +30,31 @@ resetBtn.addEventListener('click', function () {
 });
 
 splitBtn.addEventListener('click', function () {
-  watch.split();
+  watch.split()
 });
 
-function Stopwatch(elem) {
+function Stopwatch () {
   var time = 0;
   var interval;
   var offset;
   var degreesSecond;
   var degreesMinute;
   var arr = [];
-  var vendors = ['MozTransform', 'webkitTransform', 'OTransform', 'MsTransform', 'transform'];
+  var vendors = [
+    'MozTransform',
+    'webkitTransform',
+    'OTransform',
+    'MsTransform',
+    'transform'
+  ];
 
-  function showDegrees(element, degrees = 0) {
-    for (browser of vendors) {
+  function showDegrees (element, degrees) {
+    for (var browser of vendors) {
       element.style[browser] = 'rotate(' + (degrees - 90) + 'deg)';
     }
   }
 
-  function update() {
+  function update () {
     if (this.isOn) {
       time += delta();
       degreesSecond = time / 60 * 360 / 1000;
@@ -56,25 +64,24 @@ function Stopwatch(elem) {
     }
   }
 
-  function delta() {
+  function delta () {
     var now = Date.now();
     var timePassed = now - offset;
     offset = now;
     return timePassed;
   }
 
-  function pad(num, size) {
+  function pad (num, size) {
     var s = '000' + num;
     return s.substr(s.length - size);
   }
 
-  function timeFormatter(timeInMilliseconds) {
+  function timeFormatter (timeInMilliseconds) {
     var time = new Date(timeInMilliseconds);
     var minutes = time.getMinutes().toString();
     var seconds = time.getSeconds().toString();
     var milliseconds = time.getMilliseconds().toString();
-    return pad(minutes, 2) + ' : ' + pad(seconds, 2) + ' . ' +
-           pad(milliseconds, 3);
+    return pad(minutes, 2) + ' : ' + pad(seconds, 2) + ' . ' + pad(milliseconds, 3);
   }
 
   this.isOn = false;
@@ -96,25 +103,24 @@ function Stopwatch(elem) {
   };
 
   this.reset = function () {
-      time = 0;
-      stop();
-      showDegrees(arrow);
-      showDegrees(arrowMinute);
-      output.textContent = '';
-      arr = [];
-      update();
-    };
+    time = 0;
+    stop();
+    showDegrees(arrow, 0);
+    showDegrees(arrowMinute, 0);
+    output.textContent = '';
+    arr = [];
+    update.bind(this);
+  };
 
   this.split = function () {
-      if (time != 0) {
-        if (arr.length < 5) {
-          arr.push(timeFormatter(time) + '<br/>');
-        } else {
-          arr.pop();
-          arr.push(timeFormatter(time));
-        }
-
-        output.innerHTML = arr.join('');
+    if (time !== 0) {
+      if (arr.length < 5) {
+        arr.push(timeFormatter(time) + '<br/>');
+      } else {
+        arr.pop();
+        arr.push(timeFormatter(time));
       }
-    };
+      output.innerHTML = arr.join('');
+    }
+  };
 }

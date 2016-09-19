@@ -1,14 +1,11 @@
 {
-  "name": "app",
-  "version": "1.0.0",
-  "description": "",
-  "main": "stopwatch.js",
-  "scripts": {
-    "dev": "NODE_ENV=development webpack-dev-server --progress",
-    "build": "NODE_ENV=production webpack --progress"
+  "name": "stopwatch-arrows",
+  "version": "1.0.1",
+  "description": "Stopwatch with analogue arrows",
+  "main": "./js/stopwatch.js",
+  "directories": {
+    "test": "test"
   },
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "babel-core": "^6.14.0",
     "babel-loader": "^6.2.5",
@@ -20,5 +17,23 @@
     "url-loader": "^0.5.7",
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.15.1"
-  }
+  },
+  "scripts": {
+    "dev": "NODE_ENV=development webpack-dev-server --progress",
+    "build": "NODE_ENV=production webpack --progress",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dmytro96/Stopwatch.git"
+  },
+  "keywords": [
+    "stopwatch"
+  ],
+  "author": "Dmitry Kazaev <dmytrokazaev@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Dmytro96/Stopwatch/issues"
+  },
+  "homepage": "https://github.com/Dmytro96/Stopwatch#readme"
 }
