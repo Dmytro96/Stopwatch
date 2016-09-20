@@ -4,7 +4,6 @@ app/dist/
 .gitingnore.swp
 coverage/
 .idea/
-test/
 .jshintrc
 .jshintignore
 .eslintrc.js
