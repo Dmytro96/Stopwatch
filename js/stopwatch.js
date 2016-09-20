@@ -2,21 +2,21 @@
 
 require('../css/common.css');
 
-let arrow = document.getElementById('arrow');
-let arrowMinute = document.getElementById('arrowMinute');
-var output = document.getElementById('output');
-var toggleBtn = document.getElementById('toggle');
-var resetBtn = document.getElementById('reset');
-var splitBtn = document.getElementById('split');
+const arrow = document.getElementById('arrow');
+const arrowMinute = document.getElementById('arrowMinute');
+const output = document.getElementById('output');
+const toggleBtn = document.getElementById('toggle');
+const resetBtn = document.getElementById('reset');
+const splitBtn = document.getElementById('split');
 
-var watch = new Stopwatch();
+let watch = new Stopwatch();
 
 function start () {
   watch.start();
   toggleBtn.textContent = 'Pause';
 }
 
-function stop () {
+function stop() {
   watch.stop();
   toggleBtn.textContent = 'Start';
 }
@@ -34,13 +34,14 @@ splitBtn.addEventListener('click', function () {
 });
 
 function Stopwatch () {
-  var time = 0;
-  var interval;
-  var offset;
-  var degreesSecond;
-  var degreesMinute;
-  var arr = [];
-  var vendors = [
+  let time = 0;
+  let interval;
+  let offset;
+  let degreesSecond;
+  let degreesMinute;
+  let arr = [];
+
+  const vendors = [
     'MozTransform',
     'webkitTransform',
     'OTransform',
@@ -49,7 +50,7 @@ function Stopwatch () {
   ];
 
   function showDegrees (element, degrees) {
-    for (var browser of vendors) {
+    for (let browser of vendors) {
       element.style[browser] = 'rotate(' + (degrees - 90) + 'deg)';
     }
   }
@@ -65,22 +66,22 @@ function Stopwatch () {
   }
 
   function delta () {
-    var now = Date.now();
-    var timePassed = now - offset;
+    let now = Date.now();
+    let timePassed = now - offset;
     offset = now;
     return timePassed;
   }
 
   function pad (num, size) {
-    var s = '000' + num;
+    let s = '000' + num;
     return s.substr(s.length - size);
   }
 
   function timeFormatter (timeInMilliseconds) {
-    var time = new Date(timeInMilliseconds);
-    var minutes = time.getMinutes().toString();
-    var seconds = time.getSeconds().toString();
-    var milliseconds = time.getMilliseconds().toString();
+    let time = new Date(timeInMilliseconds);
+    let minutes = time.getMinutes().toString();
+    let seconds = time.getSeconds().toString();
+    let milliseconds = time.getMilliseconds().toString();
     return pad(minutes, 2) + ' : ' + pad(seconds, 2) + ' . ' + pad(milliseconds, 3);
   }
 
@@ -116,7 +117,7 @@ function Stopwatch () {
     if (time !== 0) {
       if (arr.length < 5) {
         arr.push(timeFormatter(time) + '<br/>');
-      } else {
+      } else {p
         arr.pop();
         arr.push(timeFormatter(time));
       }
@@ -124,3 +125,10 @@ function Stopwatch () {
     }
   };
 }
+let pow = function () {
+  return 8;
+}
+
+exports.pow = pow;
+
+console.log(pow());

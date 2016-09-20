@@ -2,17 +2,19 @@
   "name": "stopwatch-arrows",
   "version": "1.0.1",
   "description": "Stopwatch with analogue arrows",
-  "main": "./js/stopwatch.js",
+  "main": "js/stopwatch.js",
   "directories": {
     "test": "test"
   },
   "devDependencies": {
-    "babel-core": "^6.14.0",
-    "babel-loader": "^6.2.5",
-    "babel-preset-es2015": "^6.14.0",
+    "babel-core": "6.14.0",
+    "babel-loader": "6.2.5",
+    "babel-preset-es2015": "6.14.0",
+    "chai": "3.5.0",
     "css-loader": "^0.25.0",
     "file-loader": "^0.9.0",
     "lodash": "^4.15.0",
+    "mocha": "3.0.2",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.2",
@@ -21,7 +23,7 @@
   "scripts": {
     "dev": "NODE_ENV=development webpack-dev-server --progress",
     "build": "NODE_ENV=production webpack --progress",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha test/test.js -w"
   },
   "repository": {
     "type": "git",
@@ -35,5 +37,5 @@
   "bugs": {
     "url": "https://github.com/Dmytro96/Stopwatch/issues"
   },
-  "homepage": "https://github.com/Dmytro96/Stopwatch#readme"
+  "homepage": "https://github.com/Dmytro96/Stopwatch#readme",
 }

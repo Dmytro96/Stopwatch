@@ -1,4 +1,4 @@
-require('webpack');
+const webpack = require('webpack');
 
 module.exports = {
   context: __dirname,
@@ -14,8 +14,11 @@ module.exports = {
       { test: /\.png$/, loader: 'url-loader?mimetype=image/png' },
       {
         test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'babel-loader'
+        exclude: /(node_modules)/,
+        loader: 'babel',
+        query: {
+          presets: ['es2015']
+        }
       }
     ]
   },
