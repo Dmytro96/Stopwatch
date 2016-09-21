@@ -1,6 +1,6 @@
 {
   "name": "stopwatch-arrows",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Stopwatch with analogue arrows",
   "main": "js/main.js",
   "directories": {
