@@ -1,7 +1,7 @@
 "use strict";
 
 
-var Stopwatch = require("../js/stopwatch")
+var Stopwatch1 = require("../js/stopwatch")
 
 var assert = require('chai').assert;
 describe('Array', () => {
