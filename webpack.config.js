@@ -3,7 +3,7 @@ const webpack = require('webpack');
 module.exports = {
   context: __dirname,
   devtool: 'source-map',
-  entry: './js/stopwatch.js',
+  entry: './js/main.js',
   output: {
     path: __dirname + '/dist',
     filename: 'bundle.js'

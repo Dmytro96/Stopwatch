@@ -2,7 +2,7 @@
   "name": "stopwatch-arrows",
   "version": "1.0.1",
   "description": "Stopwatch with analogue arrows",
-  "main": "js/stopwatch.js",
+  "main": "js/main.js",
   "directories": {
     "test": "test"
   },
@@ -13,6 +13,7 @@
     "chai": "3.5.0",
     "css-loader": "^0.25.0",
     "file-loader": "^0.9.0",
+    "ignore-styles": "5.0.1",
     "lodash": "^4.15.0",
     "mocha": "3.0.2",
     "style-loader": "^0.13.1",
@@ -37,5 +38,5 @@
   "bugs": {
     "url": "https://github.com/Dmytro96/Stopwatch/issues"
   },
-  "homepage": "https://github.com/Dmytro96/Stopwatch#readme",
+  "homepage": "https://github.com/Dmytro96/Stopwatch#readme"
 }

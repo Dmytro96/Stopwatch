@@ -1,47 +1,14 @@
-'use strict';
+"use strict";
 
-require('../css/common.css');
-
-const arrow = document.getElementById('arrow');
-const arrowMinute = document.getElementById('arrowMinute');
-const output = document.getElementById('output');
-const toggleBtn = document.getElementById('toggle');
-const resetBtn = document.getElementById('reset');
-const splitBtn = document.getElementById('split');
-
-let watch = new Stopwatch();
-
-function start () {
-  watch.start();
-  toggleBtn.textContent = 'Pause';
-}
-
-function stop() {
-  watch.stop();
-  toggleBtn.textContent = 'Start';
-}
-
-toggleBtn.addEventListener('click', function () {
-  (watch.isOn) ? stop() : start();
-});
-
-resetBtn.addEventListener('click', function () {
-  watch.reset();
-});
-
-splitBtn.addEventListener('click', function () {
-  watch.split()
-});
-
-function Stopwatch () {
+function Stopwatch (arrow, arrowMinute, output) {
   let time = 0;
-  let interval;
-  let offset;
-  let degreesSecond;
-  let degreesMinute;
-  let arr = [];
+  var interval;
+  var offset;
+  var degreesSecond;
+  var degreesMinute;
+  var arr = [];
 
-  const vendors = [
+  var vendors = [
     'MozTransform',
     'webkitTransform',
     'OTransform',
@@ -50,7 +17,7 @@ function Stopwatch () {
   ];
 
   function showDegrees (element, degrees) {
-    for (let browser of vendors) {
+    for (var browser of vendors) {
       element.style[browser] = 'rotate(' + (degrees - 90) + 'deg)';
     }
   }
@@ -66,14 +33,14 @@ function Stopwatch () {
   }
 
   function delta () {
-    let now = Date.now();
-    let timePassed = now - offset;
+    var now = Date.now();
+    var timePassed = now - offset;
     offset = now;
     return timePassed;
   }
 
   function pad (num, size) {
-    let s = '000' + num;
+    var s = '000' + num;
     return s.substr(s.length - size);
   }
 
@@ -117,7 +84,7 @@ function Stopwatch () {
     if (time !== 0) {
       if (arr.length < 5) {
         arr.push(timeFormatter(time) + '<br/>');
-      } else {p
+      } else {
         arr.pop();
         arr.push(timeFormatter(time));
       }
@@ -125,10 +92,7 @@ function Stopwatch () {
     }
   };
 }
-let pow = function () {
-  return 8;
+
+module.exports = {
+  Stopwatch: Stopwatch
 }
-
-exports.pow = pow;
-
-console.log(pow());
