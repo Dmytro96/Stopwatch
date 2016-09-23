@@ -2,7 +2,7 @@
   "name": "stopwatch-arrows",
   "version": "1.0.2",
   "description": "Stopwatch with analogue arrows",
-  "main": "js/main.js",
+  "main": "js/mainES6.js",
   "directories": {
     "test": "test"
   },
