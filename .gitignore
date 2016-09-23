@@ -7,5 +7,4 @@ coverage/
 .jshintrc
 .jshintignore
 .eslintrc.js
-js/stopwatchES6.js
 

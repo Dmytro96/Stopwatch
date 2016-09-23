@@ -1,7 +1,7 @@
 "use strict";
 
 
-var Stopwatch1 = require("../js/stopwatch")
+var Stopwatch = require("../js/stopwatchES6")
 
 var assert = require('chai').assert;
 describe('Array', () => {
@@ -11,11 +11,4 @@ describe('Array', () => {
     });
   });
 
-  it('should return smth', () => {
-    assert.equal(100, 100);
-  });
-
-  // it('should return square', () => {
-  //   assert.equal(pow.pow(10), 100);
-  // });
 });
