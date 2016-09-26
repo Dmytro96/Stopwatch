@@ -61,9 +61,7 @@ import _ from 'lodash';
 
     start() {
       if (!this.isOn) {
-        setInterval(this.update(), 10);
-        this.update();
-        setInterval(undefined, 10)
+        this.interval = setInterval(this.update, 10);
         this.offset = Date.now();
         this.isOn = true;
       }
@@ -82,7 +80,7 @@ import _ from 'lodash';
       stop();
       this.showDegrees(this.arrowd, 0);
       this.showDegrees(this.arrowMinuted, 0);
-      this.outputed.textContent = '';
+      this.outputed.innerHTML = '';
       this.arr = [];
     };
 
@@ -98,31 +96,3 @@ import _ from 'lodash';
       }
     };
   };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
