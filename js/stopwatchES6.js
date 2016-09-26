@@ -1,8 +1,9 @@
+
 import '../css/common.css';
 import _ from 'lodash';
 
   export default class Stopwatch  {
-    
+
     constructor(arrow, arrowMinute, output) {
 
       this.arrowd = arrow;
@@ -12,8 +13,8 @@ import _ from 'lodash';
       this.timer = 0;
       this.interval;
       this.offset;
-      this.degreesSecond;
-      this.degreesMinute;
+      this.degreesSecond = 0;
+      this.degreesMinute = 0;
       this.arr = [];
       this.vendors = [
         'MozTransform',
@@ -27,9 +28,9 @@ import _ from 'lodash';
 
     showDegrees(element, degrees)  {
       _.each(this.vendors, browser => element.style[browser] = 'rotate(' + (degrees - 90) + 'deg)');
-    }
-   
-    update() {
+    };
+
+    update = () => {
       if (this.isOn) {
         this.timer += this.delta();
         this.degreesSecond = this.timer / 60 * 360 / 1000;
@@ -37,19 +38,19 @@ import _ from 'lodash';
         this.degreesMinute = this.degreesSecond / 60;
         this.showDegrees(this.arrowMinuted, this.degreesMinute);
       }
-    }
+    };
 
     delta() {
       let now = Date.now();
       let timePassed = now - this.offset;
       this.offset = now;
       return timePassed;
-    }
+    };
 
     static pad(num, size) {
       let s = '000' + num;
       return s.substr(s.length - size);
-    }
+    };
 
     timeFormatter (timeInMilliseconds) {
       let asTime = new Date(timeInMilliseconds);
@@ -57,11 +58,11 @@ import _ from 'lodash';
       let seconds = asTime.getSeconds().toString();
       let milliseconds = asTime.getMilliseconds().toString();
       return Stopwatch.pad(minutes, 2) + ' : ' + Stopwatch.pad(seconds, 2) + ' . ' + Stopwatch.pad(milliseconds, 3);
-    }
+    };
 
     start() {
       if (!this.isOn) {
-        this.interval = setInterval(this.update, 10);
+        setInterval( this.update, 10 );
         this.offset = Date.now();
         this.isOn = true;
       }
