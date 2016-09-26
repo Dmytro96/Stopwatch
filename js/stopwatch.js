@@ -1,5 +1,3 @@
-"use strict";
-
 function Stopwatch (arrow, arrowMinute, output) {
   let time = 0;
   var interval;
@@ -77,7 +75,7 @@ function Stopwatch (arrow, arrowMinute, output) {
     showDegrees(arrowMinute, 0);
     output.textContent = '';
     arr = [];
-    update.bind(this);
+    // update.bind(this);
   };
 
   this.split = function () {
@@ -96,3 +94,4 @@ function Stopwatch (arrow, arrowMinute, output) {
 module.exports = {
   Stopwatch: Stopwatch
 }
+
