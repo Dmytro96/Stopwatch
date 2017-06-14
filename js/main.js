@@ -1,34 +1,22 @@
-require('../css/common.css');
+import '../css/common.css';
+import Stopwatch from "./stopwatch";
+const
+    toggleBtn = document.getElementById('toggle'),
+    resetBtn = document.getElementById('reset'),
+    splitBtn = document.getElementById('split');
 
-var arrow = document.getElementById('arrow');
-var arrowMinute = document.getElementById('arrowMinute');
-var output = document.getElementById('output');
-var toggleBtn = document.getElementById('toggle');
-var resetBtn = document.getElementById('reset');
-var splitBtn = document.getElementById('split');
+const watch = new Stopwatch();
 
-var stopwatch = require('./stopwatch.js');
+const
+  start = () => {
+      watch.start();
+      toggleBtn.textContent = 'Pause';
+  },
+  stop = () => {
+      watch.stop();
+      toggleBtn.textContent = 'Start';
+  };
 
-var watch = new stopwatch.Stopwatch(arrow, arrowMinute, output);
-
-function start () {
-  watch.start();
-  toggleBtn.textContent = 'Pause';
-}
-
-function stop() {
-  watch.stop();
-  toggleBtn.textContent = 'Start';
-}
-
-toggleBtn.addEventListener('click', function () {
-  (watch.isOn) ? stop() : start();
-});
-
-resetBtn.addEventListener('click', function () {
-  watch.reset();
-});
-
-splitBtn.addEventListener('click', function () {
-  watch.split()
-});
+toggleBtn.addEventListener('click', () => watch.isOn ? stop() : start());
+resetBtn.addEventListener('click', () => watch.reset());
+splitBtn.addEventListener('click', () => watch.split());
