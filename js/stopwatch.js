@@ -17,9 +17,9 @@ function Stopwatch (arrow, arrowMinute, output) {
   ];
 
   function showDegrees (element, degrees) {
-    for (var browser of vendors) {
+    vendors.forEach(function (browser) {
       element.style[browser] = 'rotate(' + (degrees - 90) + 'deg)';
-    }
+    });
   }
 
   function update () {

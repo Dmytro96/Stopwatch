@@ -1,14 +1,15 @@
 require('../css/common.css');
+
+var arrow = document.getElementById('arrow');
+var arrowMinute = document.getElementById('arrowMinute');
+var output = document.getElementById('output');
+var toggleBtn = document.getElementById('toggle');
+var resetBtn = document.getElementById('reset');
+var splitBtn = document.getElementById('split');
+
 var stopwatch = require('./stopwatch.js');
 
-const arrow = document.getElementById('arrow');
-const arrowMinute = document.getElementById('arrowMinute');
-const output = document.getElementById('output');
-const toggleBtn = document.getElementById('toggle');
-const resetBtn = document.getElementById('reset');
-const splitBtn = document.getElementById('split');
-
-const watch = new stopwatch.Stopwatch(arrow, arrowMinute, output);
+var watch = new stopwatch.Stopwatch(arrow, arrowMinute, output);
 
 function start () {
   watch.start();
